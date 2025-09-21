@@ -1,5 +1,5 @@
 # player-x
-Demonstração de um player de musica baseado no "BlackPlayer Music Player"
+Demonstração de um player de música baseado no "BlackPlayer Music Player"
 
 ### Todas as músicas
 <img src="https://github.com/lucas458/player-x/blob/main/imagens/img1.png?raw=true" width="200" title="Todas as músicas">
@@ -7,10 +7,10 @@ Demonstração de um player de musica baseado no "BlackPlayer Music Player"
 ### Todos os albuns
 <img src="https://github.com/lucas458/player-x/blob/main/imagens/img2.png?raw=true" width="200" title="Todos os albuns">
 
-### todos os artistas
+### Todos os artistas
 <img src="https://github.com/lucas458/player-x/blob/main/imagens/img3.png?raw=true" width="200" title="todos os artistas">
 
-### todas as pastas
+### Todas as pastas
 <img src="https://github.com/lucas458/player-x/blob/main/imagens/img4.png?raw=true" width="200" title="Todas as músicas">
 
 ### Álbum
