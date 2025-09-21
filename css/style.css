@@ -1,0 +1,1274 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    overflow: hidden;
+    overscroll-behavior: none;
+}
+
+body{
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background-color: #151515;
+    color: #fff;
+    user-select: none;
+    overflow: hidden;
+    visibility: hidden;
+}
+
+
+
+/* HIDDEN SCROLL BAR */
+* {
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+}
+*::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
+}
+
+
+
+.screen{
+    width: 100%;
+    height: 100%;
+    display: none;
+    flex-direction: column;
+    position: fixed;
+}
+
+
+.screen_header,
+.screen_footer{
+    flex-shrink: 0;
+}
+
+
+.screen_content{
+    height: 100%;
+    padding-bottom: 58px;
+}
+
+.screenOpened{
+    display: flex !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+/****** MAIN SCREEN ******/
+
+
+/* SEARCH BAR */
+#mainScreenSearchHeader{
+    height: 56px;
+    background-color: #101010;
+  
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+#mainScreenSearchHeader > div{
+    width: 56px;
+    height: 56px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0; 
+}
+#mainScreenSearchHeader > div:active{
+    background-color: #353535;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* TAB MENU */
+#mainScreenTabMenuHeader{
+    overflow: auto hidden;
+    background-color: #101010;
+}
+
+#mainScreenTabMenuList{
+    display: flex;
+}
+
+.tabMenuItem{
+    flex: 1;
+    height: 48px;
+    padding: 6px 8px;
+    flex-shrink: 0;
+    font-size: 1.2em;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.tabMenuItem:active{
+    background-color: #353535;
+}
+
+.tabMenuItem:not(.tabMenuItemSelected){
+    color: #9e9e9e;
+}
+
+
+
+#mainScreenTabMenuLineWrapper{
+    width: 100%;
+    height: 4px;
+    flex-shrink: 0;
+}
+#mainScreenTabMenuLine{
+    height: 4px;
+    background-color: #fff;
+    width: 86px;
+    transition: 200ms;
+    position: relative;
+    left: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ITEM LIST */
+.itemList{
+    width: 100%;
+    height: 56px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #101010;
+    padding: 5px;
+}
+
+#main_screen .itemList{
+    background-color: #151515;
+}
+
+
+#main_screen .screen_content{
+    padding-bottom: 64px;
+}
+
+.itemListSelected{
+    background-color: #212121 !important;
+}
+.itemListSelected .itemListContentSubTitle{
+    color: #fff;
+    font-weight: 500;
+}
+
+.itemListPressed{
+    opacity: 0.5;
+    position: relative;
+    z-index: 1;
+}
+ 
+
+.itemListBox{
+    width: 46px;
+    height: 100%;
+    /* aspect-ratio: 1/1; */
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.itemListBoxRounded{
+    border-radius: 8px;
+}
+
+.itemListBoxImage{ 
+    background-image: url("../images/unknowAlbum.png");
+    background-size: 100% 100%;
+}
+
+.itemListBoxOption{
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    color: #9e9e9e;
+}
+
+
+
+
+
+.itemList:active,
+.itemListBoxOption:active{
+    background-color: #212121;
+}
+
+
+.itemListSelected .itemListBoxOption:active{
+    background-color: #353535;
+}
+
+
+
+.itemList:has(.itemListBoxOption:active){
+    background-color: #101010;
+}
+
+
+
+
+
+.itemListContent{
+    flex: 1;
+    padding: 0 6px;
+    overflow: hidden;
+}
+
+
+
+.itemListContentTitle{
+    font-size: 1.2em; 
+}
+
+.itemListSelected .itemListContentTitle{
+    font-weight: 500;
+}
+
+.itemListContentSubTitle{
+    color: #9e9e9e; 
+}
+
+.itemListContentTitle,
+.itemListContentSubTitle{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ITEM GRID */
+
+.carouselScreenContentGrid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+}
+
+
+#carouselScreenArtists .carouselScreenContentGrid{
+    gap: 3px;
+}
+
+
+
+#carouselScreenAlbums .itemGrid,
+#carouselScreenArtists .itemGrid{
+    max-width: 200px;
+}
+
+
+.itemGrid{
+    height: fit-content;
+    background-color: #101010;
+    overflow: hidden;
+    border-radius: 8px 8px 0 0;
+}
+
+.itemGridRounded{
+    border-radius: 8px;
+}
+
+.itemGridImage{
+    border-radius: 0 0 8px 8px;
+    overflow: hidden;
+    aspect-ratio: 1/1;
+    width: 100%;
+    background-image: url("../images/unknowAlbum.png");
+    background-size: 100% 100%;
+}
+
+.itemGridImageMultiple{
+    background-image: none;
+}
+
+
+
+.itemGridImageDual{
+    position: relative;
+}
+
+.itemGridImageDual .itemGridImageItem{
+    width: 100%;
+    position: absolute;
+    left: -50%;
+}
+
+.itemGridImageDual .itemGridImageItem:last-child{
+    left: 50%;
+}
+
+
+
+
+
+.itemGridImageMultiple{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+}
+
+.itemGridImageItem{
+    height: 100%;
+    aspect-ratio: 1/1;
+    background-image: url("../images/unknowAlbum.png");
+    background-size: 100% 100%;
+}
+
+
+
+
+
+
+.itemGridContentWrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px;
+    gap: 4px;
+}
+
+.itemGridContent{
+    overflow: hidden;
+    padding-left: 2px;
+}
+
+.itemGridTitle,
+.itemGridSubTitle{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.itemGridSubTitle{
+    font-size: 0.8em;
+    color: #9e9e9e;
+}
+
+
+.itemGridButton{
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+
+.itemGrid:active,
+.itemGridButton:active{
+    background-color: #212121;
+}
+
+.itemGrid:has(.itemGridButton:active){
+    background-color: #101010 !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Carousel Screen */
+
+.carouselScreenContainer{
+    width: 100%;
+    height: 100%; 
+    display: flex;
+    position: relative;
+    left: 0;
+}
+
+.carouselScreen{
+    width: 100%;
+    height: 100%;
+    flex-shrink: 0;
+    overflow: hidden;
+    display: flex;
+}
+
+
+.carouselScreenContent{
+    width: 100%;
+    overflow: hidden auto;
+    padding-bottom: 100px;
+}
+
+
+
+
+
+.screenScroll{
+    flex-shrink: 0; 
+    width: 10px;
+    /* width: 60px; */
+    height: 100%;
+    /* background-color: #353535; */
+}
+
+
+.screenScrollThumb{
+    width: 100%;
+    height: 64px;
+    background-color: #fff;
+    position: relative;
+    top: 0;
+}
+
+.screenScrollSelector{
+    width: 64px;
+    height: 64px;
+    background-color: #1565c0;
+    border-radius: 50% 50% 0 50%;
+    font-size: 2em;
+    pointer-events: none;
+    visibility: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+    right: calc(100% + 8px);
+    top: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* TAB: PASTAS */
+#breadCrumb{
+    padding: 4px 4px;
+    background-color: #212121;
+    color: #acacac;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+#breadCrumb::before{
+    content: '← ';
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.headBar{
+    width: 100%;
+    height: 56px;
+    background-color: rgba(33, 33, 33, 0);
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    position: absolute;
+    z-index: 1; 
+    top: 0;
+}
+
+.headBarButton{
+    height: 100%;
+    aspect-ratio: 1/1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.headBarLabel{
+    font-size: 1.2em;
+    font-weight: 500;
+    overflow: hidden;
+    padding-right: 8px;
+    text-overflow: ellipsis;
+    opacity: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/****** ARTIST SCREEN ******/
+#artist_screen{
+    background-color: #101010;
+}
+
+#artist_screen .screen_content{
+    overflow: hidden auto;
+}
+
+#artistScreenCover{
+    width: 100%;
+    aspect-ratio: 1/1;
+    background-image: url('../images/unknowAlbum.png');
+    background-size: 100% auto;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+#artistScreenName{
+    padding: 4px 0;
+    font-size: 1.6em;
+    font-weight: 500;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+}
+
+#artistScreenInfo{
+    text-align: center;
+    font-size: 0.9em;
+    color: #9e9e9e;
+    margin-bottom: 8px;
+}
+
+
+#artistScreenHorizontalAlbumList{
+    padding: 0 8px;
+    overflow: auto;
+    display: flex;
+    gap: 6px;
+}
+
+#artistScreenHorizontalAlbumList .itemGrid{
+    width: calc(100% / 3);
+    flex-shrink: 0;
+    background-color: #151515;
+}
+
+#artistScreenHorizontalAlbumList .itemGrid:active{
+    background-color: #212121;
+}
+
+#artistScreenHorizontalAlbumList .itemGrid:has(.itemGridButton:active){
+    background-color: #151515 !important;
+}
+
+#aristScreenSongSeparator{
+    margin: 16px 0;
+    padding: 0 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    color: #9e9e9e;
+}
+
+#aristScreenSongSeparator::before,
+#aristScreenSongSeparator::after{
+    content: '';
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: #353535;
+}
+
+ 
+
+
+
+
+
+
+
+
+
+/****** ALBUM SCREEN ******/
+#album_screen{
+    background-color: #101010;
+}
+
+#album_screen .screen_content{
+    overflow: hidden auto;
+}
+
+#albumScreenCover{
+    width: 100%; 
+    aspect-ratio: 1/1;
+    background-image: url('../images/unknowAlbum.png');
+    background-size: 100% auto;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+
+#album_screen .itemListBox{
+    color: #9e9e9e;
+}
+#album_screen .itemListSelected .itemListBoxImage{
+    color: #fff !important;
+    font-weight: 500;
+}
+
+
+
+
+#albumScreenCoverButton{
+    width: 64px;
+    height: 64px;
+    background-color: #388E3C;
+    box-shadow: 0 0 5px 0 #000;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 32px;
+    bottom: -32px;
+}
+
+
+
+#albumScreenInfoWrapper{
+    padding: 32px 16px 16px 16px;
+}
+
+#albumScreenName{
+    font-size: 1.6em;
+    font-weight: 500;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#albumScreenDualContent{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9em;
+    color: #9e9e9e;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* PLAYER SCREEN */
+
+#player_screen{
+    background-color: #101010;
+    top: calc(100% - 56px);
+}
+
+#player_screen .screen_header{
+    height: 56px;
+    flex-shrink: 0;
+    background-color: #101010;
+    box-shadow: 0 0 5px 0 #000;
+}
+
+
+.screen_header_dual{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.screen_header_front,
+.screen_header_back{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+}
+
+.screen_header_front{ 
+    background-color: #101010;
+    position: absolute;
+}
+
+
+.heartButtonActive{
+    color: #dc3545 !important;
+}
+
+
+
+.screen_header_content{
+    text-align: center;
+    overflow: hidden;
+    padding: 0 4px;
+}
+
+.screen_header_cover,
+.screen_header_button{
+    width: 56px;
+    height: 56px; 
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.screen_header_cover{
+    padding: 4px; 
+}
+
+
+.screen_header_cover_image{
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    background-image: url("../images/unknowAlbum.png");
+    background-size: 100% 100%;
+}
+
+
+
+/* IF: not use 'screen_header_button' */
+#player_screen .screen_header_back::before{
+    content: '';
+    display: block;
+    width: 56px;
+    height: 56px;
+}
+
+#player_screen .screen_header_back .screen_header_button{
+    color: #353535; 
+}
+
+#player_screen .screen_header_front .screen_header_button:active{
+    background-color: #212121;
+}
+#player_screen .screen_header_back .screen_header_button:active{
+    transform: scale(1.2);
+}
+
+
+
+#player_screen .screen_header_content_title{
+    font-weight: bold;
+}
+#player_screen .screen_header_content_subTitle{
+    color: #9e9e9e;
+}
+
+
+
+#player_screen .screen_header_content_title,
+#player_screen .screen_header_content_subTitle{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+
+
+
+
+/* COVER SWIPE TO BACK/NEXT SONG */
+
+#player_cover_container_wrapper{
+    position: relative;
+}
+
+#player_cover_container{
+    display: grid;
+    grid-template-columns: repeat(3, 100%);
+
+    transform-style: preserve-3d;
+    perspective: 1000px;
+
+    aspect-ratio: 1/1;
+    position: relative;
+}
+
+
+#progressTimeCurrentPress{
+    width: 100%;
+    background-color: #00000080;
+    font-size: 3em;
+    position: absolute;
+    text-align: center;
+    bottom: 0;
+}
+
+
+.player_cover_screen{
+    padding: 6px;
+}
+
+
+.player_cover_image{
+    width: 100%;
+    height: 100%;
+    border-radius: 6px;
+    background-color: #353535;
+    background-image: url("../images/unknowAlbum.png");
+    background-size: 100% 100%;
+}
+
+
+
+
+
+
+
+
+
+.player_song_title{ 
+    font-size: 1.5em;
+    font-weight: 500;
+}
+.player_song_artist{
+    
+    color: #9e9e9e;
+}
+
+.player_song_title,
+.player_song_artist{
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis_content;
+}
+
+
+
+
+
+
+.player_progressAndTime{
+    margin: 8px;
+    padding: 0 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+}
+
+
+.player_current_time,
+.player_duration_time{
+    white-space: nowrap;
+}
+
+.progressTrack{
+    width: 100%;
+    height: 4px;
+    background-color: #353535;
+}
+
+.progressFill{
+    width: 0%; 
+    height: 100%;
+    background-color: #fff;
+    position: relative;
+}
+
+.progressThumb{
+    width: 16px;
+    height: 16px;
+    background-color: #fff;
+    border-radius: 50%;
+    position: relative;
+    left: calc(100% - 8px);
+    top: calc(2px - 8px);
+}
+
+
+
+
+
+
+.player_controls{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    margin: 16px 0;
+}
+
+.player_control_button{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.player_control_button:active{
+    background-color: #353535;
+}
+
+.player_control_button:nth-child(3){
+    background-color: #616161;
+    width: 56px;
+    height: 56px;
+}
+.player_control_button:nth-child(3):active{
+    opacity: 0.8;
+}
+
+
+.player_current_song{
+    text-align: center;
+    color: #9e9e9e;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* PLAYLIST SCREEN */
+
+#playlist_screen{
+    background-color: #101010;
+    top: 100%;
+}
+
+#playlist_screen .screen_header{
+    height: 32px; 
+}
+#playlist_screen .screen_header > div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #151515;
+    color: #9e9e9e;
+}
+
+
+
+#playlist_screen .screen_content{
+    padding: 0;
+    overflow: hidden auto;
+}
+
+
+#playlist_screen .screen_footer{
+    height: 56px;
+    background-color: #0a0a0a;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+}
+
+
+.playlistDurationContent{
+    flex: 1;
+    text-align: right;
+}
+.playlistDurationContent:last-child{
+    text-align: left;
+}
+
+
+.playlistDurationTitle{
+    font-size: 1.5em; 
+}
+
+.playlistDurationSubTitle{
+    font-size: 0.8em;
+    color: #9e9e9e;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/****** SEARCH SCREEN ******/
+#search_screen{
+    background-color: #151515;
+}
+#search_screen .screen_header{
+    height: 56px;
+    background-color: #151515;
+    box-shadow: 0 0 10px 0 #000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#searchScreenClose{
+    width: 56px;
+    height: 56px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+#searchScreenClose:active{
+    background-color: #212121;
+}
+
+
+#searchInputWrapper{
+    height: 40px;
+    margin: 0 8px 0 4px;
+    background-color: #212121; 
+    overflow: hidden;
+    border-radius: 8px;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#searchInput{
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    caret-color: #0ff;
+    background-color: transparent;
+    font-size: 1.2em;
+    color: #fff;
+    padding: 0 8px 0 16px;
+}
+
+#searchInputClear{
+    height: 100%;
+    aspect-ratio: 1/1;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+
+#search_screen .screen_content{
+    overflow: hidden auto;
+}
+
+
+.searchResultTitle{
+    font-size: 1.2em;
+    padding: 8px;
+    font-weight: bold;
+    color: #9e9e9e;
+}
+
+
+#search_screen .itemList{
+    background-color: #151515;
+}
+
+#search_result_album .itemGrid,
+#search_result_artist .itemGrid{
+    width: calc(100% / 3);
+    flex-shrink: 0;
+}
+
+#search_result_album .searResultContent,
+#search_result_artist .searResultContent{
+    display: flex;
+    overflow: auto;
+    gap: 3px;
+}
+
+
+
+.searchResultContainer:has(.searResultContent:empty){
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+
+/****** POPUP MENU ******/
+#popupMenuScreen{
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+    position: fixed;
+}
+
+#popupMenu{
+    min-width: 112px;
+    max-width: 280px;
+    overflow: hidden;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #151515;
+    box-shadow: 0 0 5px 0 #000;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+
+.popupItem{
+    padding: 16px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.popupItem:active{
+    background-color: #212121;
+}
